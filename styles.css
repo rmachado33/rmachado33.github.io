@@ -1,0 +1,58 @@
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+header{
+
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 720px;
+    background: url("img/background.png");
+    background-size: 100%;
+
+	color: #FFF;
+}
+    
+header h3{
+	font-family: 'Bungee Hairline', sans-serif;
+}
+
+header h1{
+	font-family: 'Russo One', sans-serif;
+}
+
+h1 {
+    text-shadow: 2px 2px #5b795c;
+}
+
+section#name{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+section#social{
+	font-size: 30px;
+    margin-top: 20px;
+}
+
+section#social a{
+	color: #fff;
+}
+
+section#social a:focus, section#social a:hover {
+    color: #FFF;
+    text-decoration: none;
+}
+
+.avatar{
+	border-radius: 50%;
+    border: 8px solid white;
+    border-style: double;
+	width: 200px;
+}
+
+hr{
+	width: 150px;
+}
