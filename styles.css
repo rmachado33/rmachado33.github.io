@@ -9,8 +9,10 @@ header{
     height: 720px;
     background: url("img/background.png");
     background-size: 100%;
-
 	color: #FFF;
+
+	perspective: 1000;
+	z-index: 1;
 }
     
 header h3{
@@ -29,7 +31,7 @@ section#name{
     justify-content: center;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    flex-direction: column;	
 }
 
 section#social{
@@ -48,11 +50,102 @@ section#social a:focus, section#social a:hover {
 
 .avatar{
 	border-radius: 50%;
-    border: 8px solid white;
+    border: 3px solid white;
     border-style: double;
 	width: 200px;
+	
 }
 
 hr{
 	width: 150px;
 }
+
+
+/*Avatar Animation*/
+.circle-container {
+	position: relative;
+	perspective: 1000;	
+	margin: 0 auto;	
+}
+
+.circle-container:hover .circle {
+	transform: rotate3d(45, 45, 0, 180deg);
+}
+
+.circle-container:hover .outer-ring {
+	transform: rotate3d(45, 0, 0, 180deg);
+}	
+
+.circle-container:hover .outer-outer-ring {
+	transform: rotate3d(0, 45, 0, 180deg);
+}
+
+.circle-container, .front, .back {
+	width: 200px;
+	height: 200px;
+	background-color: rgba(0,0,0,0);
+}
+
+.circle, .outer-ring, .outer-outer-ring {
+	transition: 0.5s;
+	transform-style: preserve-3d;
+	transition-timing-function: cubic-bezier(0.785, 0.135, 0.150, 0.860);
+}
+
+.circle {
+	position: relative;
+	width: 200px;
+	height: 200px;
+}
+		
+.front, .back {
+	border-radius: 50%;
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+		
+.front {
+	background-color: #fff;
+	z-index: 2;
+}
+		
+		
+.back {
+	transform: rotate3d(45,45,0,180deg);
+	background-color: #fff;
+}
+		
+.back-face {
+	width: 80%;
+	display: block;
+	margin: 0 auto;
+}
+		
+.outer-ring {
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	width: 220px;
+	height: 220px;
+	background-color: rgba(255,255,255,0);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+
+.outer-outer-ring {
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	width: 211px;
+	height: 211px;
+	background-color: rgba(255,255,255,0);
+	box-shadow: 0px 0px 20px rgba(0,0,0,0.4);
+}
+
+/*Avatar Animation End*/
